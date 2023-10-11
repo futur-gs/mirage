@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<!-- <link rel="stylesheet" type="text/css" href="styles - blue_black_white.css"> -->
+
+<head>
+	<title>My Home Page</title>
+	<script>
+		window.onload = function () {
+			redirect_page_link();
+
+			var navLinks = document.querySelectorAll('nav ul li a');
+			for (var i = 0; i < navLinks.length; i++) {
+				navLinks[i].addEventListener('click', function (e) {
+					e.preventDefault();
+					select_nav_and_show_page(this);
+				});
+			}
+		};
+
+		function scroll_top() {
+			document.body.scrollTop = 0; // for Safari
+			document.documentElement.scrollTop = 0; // others
+		}
+
+		function redirect_page_link() {
+			var page_links = document.getElementsByClassName("page_link");
+
+			for (var i = 0; i < page_links.length; i++) {
+				var link_targetSection = page_links[i].getAttribute("href");
+				page_links[i].addEventListener('click', function (e) {
+					e.preventDefault();
+
+					var navLinks = document.querySelectorAll('nav ul li a');
+					for (var j = 0; j < navLinks.length; j++) {
+						var nav_targetSection = navLinks[j].getAttribute("href");
+						if (link_targetSection == nav_targetSection) {
+							select_nav_and_show_page(navLinks[j]);
+							break;
+						}
+					}
+				});
+			}
+		}
+
+		function select_nav_and_show_page(this_nav_link) {
+			var navLinks = document.querySelectorAll('nav ul li a');
+			var pageSections = document.querySelectorAll('main section');
+
+			for (var j = 0; j < navLinks.length; j++) {
+				navLinks[j].classList.remove('active');
+			}
+			this_nav_link.classList.add('active');
+			for (var k = 0; k < pageSections.length; k++) {
+				pageSections[k].style.display = 'none';
+			}
+			var targetSection = this_nav_link.getAttribute('href');
+			document.querySelector(targetSection).style.display = 'block';
+			scroll_top();
+
+			if (targetSection == "#donate") {
+				//fetchStripeButton();
+
+				var stripe_button = document.getElementById("stripe_button");
+
+				const htmlCode = '<p>This is the dynamically inserted HTML code.</p>';
+
+				// Insert the HTML code before the existing content of the element
+				myElement.setHTML(htmlCode);
+
+				// fetch('stripe_sec.html')
+				// 	.then((response) => {
+				// 		response.text();
+				// 	})
+				// 	.then((html) => {
+				// 		alert(html);
+				// 		stripe_button.innerHTML += html;
+				// 	})
+				// 	.catch(function (err) {
+				// 		alert(err);
+				// 		console.log('Failed to fetch page: ', err);
+				// 	});
+			}
+		}
+
+
+		async function fetchStripeButton() {
+			try {
+				let response = await fetch('stripe_sec.html'); // Gets a promise
+				var stripe_button = document.getElementById("stripe_button");
+				//stripe_button.innerHTML = "<h1>hello</h1>";
+				let txt = await response.text();
+				stripe_button.innerHTML = txt; // Replaces body with response
+				alert(txt);
+			} catch (err) {
+				alert(err);
+				console.log('Fetch error:' + err); // Error handling
+			}
+		}
+
+		function showFullSizeImage() {
+			var overlay = document.getElementById("overlay");
+			overlay.style.display = "flex";
+		}
+		function hideFullSizeImage() {
+			var overlay = document.getElementById("overlay");
+			overlay.style.display = "none";
+		}
+	</script>
+</head>
+
+<body>
+	<div id="nav_container">
+		<nav>
+			<div class="container">
+				<div>
+					<h1 class="logo">FUTURE GEARS</h1>
+				</div>
+				<ul>
+					<li><a href="#home" class="active">Home</a></li>
+					<li><a href="#video">Video</a></li>
+					<li><a href="#download">Download</a></li>
+					<li><a href="#donate">Donate</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<main>
+		<div class="container">
+			<section id="home">
+				<div class="container-body">
+					<div class="app-header">
+						<img class="app-icon" src="res/logo.png" alt="App Icon">
+						<div class="app-title">
+							<h1>Mirage 0.9 beta</h1>
+							<p class="app-desc">Tamp the darkness, so as to vision a brighter future</p>
+						</div>
+					</div>
+
+					<!-- <div class="container-feature"> -->
+					<div class="home-features">
+						<h2>Key Features:</h2>
+						<ul>
+							<li>Instantaneous content-aware brightness adjustment</li>
+							<li>Non-intrusive brightness compensation design</li>
+							<li>Bright-white / high-contrast content detection</li>
+							<li>Progressive brightness, can be used alone or as a 2nd-layer brightness control</li>
+							<li>Separable settings for each connected monitor</li>
+							<li>On/Off setting per app (from tray icon)</li>
+							<li>Light-weight and very low resources consumption</li>
+						</ul>
+					</div>
+					<div class="screenshot">
+						<img class="thumbnail" src="res/screenshot_thumbnail.png" alt="App Screenshot"
+							onclick="showFullSizeImage()">
+					</div>
+					<div class="overlay" id="overlay" onclick="hideFullSizeImage()">
+						<img src="res/screenshot.png" alt="App Screenshot">
+					</div>
+					<!-- </div> -->
+
+					<div class="view-counter">
+						<!-- <img src="view.png" alt="view-counter"> -->
+						<img
+src="https://img.shields.io/endpoint?url=https://counter10.p.rapidapi.com/?rapidapi-key=12fe482867msh1ed1eda1aa6c890p1db4d5jsnb7712eb93159%26%26ID=futur-gs%26%26COLOR=blue"
+alt="view-counter">
+					</div>
+
+					<br/><br/><br/><br/><br/>
+				</div>
+			</section>
+			<section id="video" style="display:none;">
+				<h2>Video</h2>
+				<p>Watch our latest videos here.</p>
+				<iframe width="1024" height="576" src="https://www.youtube.com/embed/[_______]?autoplay=1&mute=1">
+				</iframe>
+
+			</section>
+			<section id="download" style="display:none;">
+				<h1>Download</h1>
+
+				<div class="license">
+					<h3>License Agreement</h3>
+					<p>Personal, non-commercial use of the app is free. This scheme is set such that people would feel less hesitant to try it out, and discover a healthier way to read from the monitor.</p>
+					<p>For commercial use, there will be a price of $10. But for this beta version, please feel free to
+						evaluate until the license expires on 01-Feb-2024. At that time a new version should have been released. Otherwise, one can continue to use the current version.</p>
+				</div>
+
+				<div class="spec">
+					<h3>System Requirements:</h3>
+					<ul>
+						<li>Windows 10 x64 or later</li>
+						<li>Admin rights for installation</li>
+						<li class="exaggeration"> Work perfectly with Windows Night light but not the 3rd-party blue light filters like f.lux, Redshift, etc. Those programs would need to be closed before running Mirage.</li>
+						<li>Recommend for switching off that "content-aware brightness control" in Windows 11, since you will no longer need it.</li>
+						<li>Hardware: The software has been tested and run smooth on:
+							<ul>
+								<li>Laptop with i5 gen 8th + UHD 620</li>
+								<li>Laptop with i5 gen 12th + Iris-Xe</lij>
+							</ul>
+							<p>If you have system of similar grade or above, expect the software to run smooth.</p>
+							<p>Not yet have chance to test on an AMD though. Neither for 4k monitor nor 120fps display.
+							</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="donation">
+					<h3>Donation</h3>
+					<p>There are lots of exciting new features yet to be implemented and there are rooms for general
+						improvement. There are also cost for renting domain, registering software certificate (not yet have
+						budget), and more.</p>
+					<p>If you find this software helpful to you, you can support the development by making a <a
+							class="page_link" href="#donate">donation</a>. You can simply choose any amount based on how much the app satisfy you.</p>
+				</div>
+
+				<div class="download_info">
+					<h3>Download</h3>
+					<p style="padding-top:10px;"><a href="download/Mirage.msi" class="button">Mirage 0.9 beta
+						Installer</a></p>
+					
+					<table>
+						<tbody>
+							<tr><td style="width:20%;">Release Date:</td><td>11-Oct-2023</td></tr>
+							<tr><td style="width:20%;">sha-256:</td><td>d4ddb033273682a89d8977257271dbf3b04858625ce947f85593650801b292e9</td></tr>
+							<tr><td style="width:20%; vertical-align: top;">Note:</td><td>The software is currently not signed with certificate yet. Browsers like Edge might say "Mirage.msi could harm your system. Do you want to keep it anyway?" Just Press "Keep" to continue.</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+			<section id="donate" style="display:none;">
+				<h2>Donation</h2>
+
+				<p>My goal is to allow as many people as possible to enjoy most of the features of Mirage without having to reserve some good new features for a paid version,
+					 while maintaining a sustainable business and provide fastest features releases and greatest improvements. Your support will help me achieve
+					this goal. You can simply donate any amount based on how much the app satisfy you.</p>
+
+				<p>Donate with credit card safely via Stripe:</p>
+
+				<div id="stripe_button">
+					<script async src="https://js.stripe.com/v3/buy-button.js">
+					</script>
+
+					<stripe-buy-button buy-button-id="buy_btn_1NWcrgDk8UTx26AWbHIiH3mW"
+						publishable-key="pk_live_51NNN0hDk8UTx26AWgdndzmO3wLoaU9tmXYb3Y2kJyZaqghIeDrC3C7oIKLpgEZ5ChiWDnAt4uA91UXM4JYi3a3cR007ToMJcHh">
+					</stripe-buy-button>
+
+				</div>
+			</section>
+				
+			<section id="about" style="display:none;">
+				<h2>About</h2>
+				<p>The Mirage app is most dedicated to those which hanging with a computer has become a inseparable part of their lives,
+					whether they eventually find themselves become sensitive to light, or just start to care about their eye's healthiness.
+				</p>
+				<p>Back in a decade ago, some disease had cause my eyes become very sensitive to light, making it painful just to
+					look upon the monitor. And among all the relative scenarios, the most unbearable one would be looking on sudden
+					screen changes from dark to bright. It almost feels like being stabbed by a flashlight. After the long 
+					recovery period, I had started to research and work on this project.
+				</p>
+
+				<p>Although the current version is equipped with a lot of features I regard as fundamental to make the app convenient
+					to use, there are even more exciting features to be added and general improvements (optimizations, debug, etc)
+					to be made. Unfortunately, the development is currently obstructed by some serious health problem I'm facing, though, I 
+					would still make advancement as much as possible.
+				</p>
+
+				<p>
+					Anyway thanks for trying out the app. If you find it helpful please share this site and let more people benefit from it!
+				</p>
+
+				<p>All The Best,</p>
+				<p>Horus Lam</p>
+				
+				<br/><br/><br/>
+				<h2>Contact</h2>
+				<table>
+					<tbody>
+						<tr><td style="width:20%;">Email:</td><td><a href="mailto:mirage.futur.gs@gmail.com">mirage.futur.gs@gmail.com</a></td></tr>
+						<tr><td style="width:20%;">Twitter:</td><td><a href="https://twitter.com/futur_gs">https://twitter.com/futur_gs</a></td></tr>
+						<tr><td style="width:20%;">Facebook:</td><td>Not available until they notice there was a miscommunication and unblock my account :(</td></tr>
+					</tbody>
+				</table>
+
+				<br/><br/><br/><br/><br/><br/>
+			</section>
+		</div>
+	</main>
+	<footer>
+		<div class="container">
+			<p>Copyrights &copy; 2023 Future Gears LLC. All rights reserved.</p>
+		</div>
+	</footer>
+</body>
+
+</html>
