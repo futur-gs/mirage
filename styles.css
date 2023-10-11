@@ -290,6 +290,15 @@ textarea, input[type=text], select {
     padding-bottom: 10px;
 }
 
+.view-counter {
+    flex-basis: 100%;
+    padding: 10px;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .license {
     margin-top: 40px;
     margin-bottom: 40px;
