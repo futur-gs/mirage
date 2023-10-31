@@ -312,3 +312,10 @@ textarea, input[type=text], select {
 .download_info{
     margin-bottom: 100px;
 }
+
+.paypal-donate-button {
+    padding-top: 0px;
+    width: 250px;
+    height: 143px;
+    cursor: pointer;
+}
