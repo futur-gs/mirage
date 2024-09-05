@@ -120,7 +120,7 @@
 					<li><a href="#home" class="active">Home</a></li>
 					<li><a href="#video">Video</a></li>
 					<li><a href="#download">Download</a></li>
-					<li><a href="#donate">Donate</a></li>
+					<!-- <li><a href="#donate">Donate</a></li> -->
 					<li><a href="#about">About</a></li>
 				</ul>
 			</div>
@@ -133,8 +133,8 @@
 					<div class="app-header">
 						<img class="app-icon" src="res/logo.png" alt="App Icon">
 						<div class="app-title">
-							<h1>Mirage 1.0</h1>
-							<p class="app-desc" style="max-width:500px;">World's 1st Instantaneous content-aware brightness control app</p>
+							<h1>Mirage 1.1</h1>
+							<p class="app-desc" style="max-width:500px;">World's 1st Instantaneous content adaptive brightness control app</p>
 						</div>
 					</div>
 
@@ -142,17 +142,17 @@
 					<div class="home-features">
 						<h2>Key Features:</h2>
 						<ul>
-							<li>Instantaneous content-aware brightness adjustment</li>
-							<li>Non-intrusive brightness compensation design</li>
-							<li>Bright-white / high-contrast content detection</li>
-							<li>Progressive brightness, can be used alone or as a 2nd-layer brightness control</li>
+							<li>Instantaneous content adaptive brightness control</li>
+							<li>Dynamic color temperature based on content</li>
+							<li>Bright-white content aware dimming</li>
+							<li>User-friendly profile system</li>
 							<li>Separable settings for each connected monitor</li>
 							<li>On/Off setting per app (from tray icon)</li>
 							<li>Light-weight and very low resources consumption</li>
 						</ul>
 					</div>
 					<div class="screenshot">
-						<img class="thumbnail" src="res/screenshot_thumbnail.png" alt="App Screenshot"
+						<img class="thumbnail" src="res/screenshot.png" alt="App Screenshot"
 							onclick="showFullSizeImage()">
 					</div>
 					<div class="overlay" id="overlay" onclick="hideFullSizeImage()">
@@ -174,14 +174,14 @@ alt="view-counter">
 			</section>
 			<section id="video" style="display:none;">
 				<h2>Video</h2>
-				<iframe width="896" height="504" src="https://www.youtube.com/embed/FTFGNofaars?autoplay=0&mute=1">
-				</iframe>
+				<iframe width="896" height="504" src="https://www.youtube.com/embed/u61msaQRIcI?autoplay=0&loop=1&playlist=u61msaQRIcI"></iframe>​
 
 			</section>
 			<section id="download" style="display:none;">
 				<h1>Download</h1>
 
-				<div class="license">
+				<!--
+				<div class="license">x
 					<h3>License Agreement</h3>
 					<p>The app is free for any non-commercial and commercial use. This scheme is set such that people would feel less hesitant to try it out, and discover a healthier way to read from the monitor.</p>
 					
@@ -191,13 +191,16 @@ alt="view-counter">
 					<p>If you find this software helpful to you, you can support the development by making a <a
 							class="page_link" href="#donate">donation</a>. You can simply choose any amount based on how much the app satisfy you.</p>
 				</div>
+				-->
 
 				<div class="spec">
 					<h3>System Requirements:</h3>
+					
+					<div class="content">
 					<ul>
 						<li>Windows 10 x64 or later</li>
-						<li>Admin rights for installation</li>
-						<li class="exaggeration"> Work perfectly with Windows Night light but not the 3rd-party blue light filters like f.lux, Redshift, etc. Those programs would need to be closed before running Mirage.</li>
+						<li>Admin permission for installation</li>
+						<!-- <li class="exaggeration"> Work perfectly with Windows Night light but not the 3rd-party blue light filters like f.lux, Redshift, etc. Those programs would need to be closed before running Mirage.</li> -->
 						<li>Recommend for switching off that "content-aware brightness control" in Windows 11, since you will no longer need it.</li>
 						<li>Hardware: The software has been tested and run smooth on:
 							<ul>
@@ -209,21 +212,32 @@ alt="view-counter">
 							</p>
 						</li>
 					</ul>
+					</div>
 				</div>
-
+				
 				<div class="download_info">
 					<h3>Download</h3>
-					<p style="padding-top:10px;"><a href="download/Mirage.msi" class="button">Mirage 1.0 msi Installer</a></p>
 					
-					<table>
-						<tbody>
-							<tr><td style="width:20%;">Release Date:</td><td>27-Oct-2023</td></tr>
-							<tr><td style="width:20%;">sha-256:</td><td>508086b165924f4a0f7440e6007dad0b583d7e4f2e7d5a8cbd5c1ae3531a1c99</td></tr>
-							<tr><td style="width:20%; vertical-align: top;">Note:</td><td>The software is currently not signed with certificate yet. Browsers like Edge might say "Mirage.msi could harm your system. Do you want to keep it anyway?" Just Press "Keep" to continue.</td></tr>
-						</tbody>
-					</table>
+					<div class="content">
+					<!-- <p style="padding-top:10px;"><a href="download/Mirage.msi" class="button">Mirage 1.0 msi Installer</a></p> -->
+					<a href="ms-windows-store://pdp/?productid=9NXVS6MKX47D"><img class="get-it-from-microsoft-button" src="res/get-it-	from-microsoft.png" alt="Get it from Microsoft"></a>
+					
+					</div> <!-- content -->
 				</div>
+				
+				<div class="spec">
+					<h3>Privacy Policy</h3>
+					
+					<div class="content">
+						<p>Read our <a href="mirage_privacy_policy.html">Privacy Policy</a></p>
+					</div>
+				</div>
+				
+				<div class="empty-block"/>
+				<br/><br/><br/><br/><br/><br/>
 			</section>
+			
+			<!--
 			<section id="donate" style="display:none;">
 				<h2>Donation</h2>
 
@@ -248,8 +262,10 @@ alt="view-counter">
 
 				</div>
 			</section>
+			-->
 				
 			<section id="about" style="display:none;">
+				<!--
 				<h2>About</h2>
 				<p>The Mirage app is most dedicated to those which hanging with a computer has become an inseparable part of their lives,
 					whether they eventually find themselves become sensitive to light, or just start to care about their eye's healthiness.
@@ -274,12 +290,14 @@ alt="view-counter">
 				<p>Horus Lam</p>
 				
 				<br/><br/><br/>
+				-->
+				
 				<h2>Contact</h2>
 				<table>
 					<tbody>
 						<tr><td style="width:20%;">Email:</td><td><a href="mailto:mirage.futur.gs@gmail.com">mirage.futur.gs@gmail.com</a></td></tr>
-						<tr><td style="width:20%;">Twitter:</td><td><a href="https://twitter.com/futur_gs">https://twitter.com/futur_gs</a></td></tr>
-						<tr><td style="width:20%;">Facebook:</td><td>Not available until they notice there was a miscommunication and unblock my account :(</td></tr>
+						<!-- <tr><td style="width:20%;">Twitter:</td><td><a href="https://twitter.com/futur_gs">https://twitter.com/futur_gs</a></td></tr> -->
+						<tr><td style="width:20%;">Facebook:</td><td><a href="https://www.facebook.com/people/Future-Gears/61561000476006">https://www.facebook.com/people/Future-Gears/61561000476006</a></td></tr>
 					</tbody>
 				</table>
 
@@ -289,7 +307,7 @@ alt="view-counter">
 	</main>
 	<footer>
 		<div class="container">
-			<p>Copyrights &copy; 2023 Future Gears LLC. All rights reserved.</p>
+			<p>Copyrights &copy; 2023-2024 Future Gears. All rights reserved.</p>
 		</div>
 	</footer>
 </body>
