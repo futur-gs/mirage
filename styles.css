@@ -33,6 +33,11 @@ body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
+div.content {
+	margin: 0em 0em;
+}
+	
+
 .exaggeration {
     color: var(--alert-text);
 }
@@ -227,8 +232,9 @@ textarea, input[type=text], select {
     flex-basis: 70%;
     text-align: left;
     margin-bottom: 20px;
-    width: 1000px;
+    min-width: 700px;
     padding: 20px;
+	//background-color: green;
 }
 .app-icon {
     display: block;
@@ -304,18 +310,32 @@ textarea, input[type=text], select {
     margin-bottom: 40px;
 }
 
-.spec,
+.spec {
+    margin-bottom: 40px;
+}
+
 .donation {
     margin-bottom: 40px;
 }
 
 .download_info{
-    margin-bottom: 100px;
+    margin-bottom: 40px;
+}
+
+div.empty-block {
+	margin-bottom: 100px;
 }
 
 .paypal-donate-button {
     padding-top: 0px;
     width: 250px;
     height: 142px;
+    cursor: pointer;
+}
+
+.get-it-from-microsoft-button {
+    padding-top: 0px;
+    width: 216px;
+    height: 78px;
     cursor: pointer;
 }
